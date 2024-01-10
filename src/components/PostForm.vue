@@ -27,7 +27,7 @@ export default {
     return {
       post: {
         title: '',
-        body: ''
+        body: '',
       }
     }
   },
