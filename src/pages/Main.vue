@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Добро пожаловать!</h1>
+    <h1>Добро пожаловать! Vue js</h1>
   </div>
 </template>
 

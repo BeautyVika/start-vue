@@ -30,18 +30,6 @@
     />
     <div v-else>Идет загрузка</div>
     <div v-intersection="loadMorePosts" class="observer"></div>
-    <!--    <div class="page__wrapper">-->
-    <!--      <div v-for="pageNumber in totalPage"-->
-    <!--           :key="pageNumber"-->
-    <!--           class="page"-->
-    <!--           :class="{-->
-    <!--             'current-page': page === pageNumber-->
-    <!--           }"-->
-    <!--           @click="changePage(pageNumber)"-->
-    <!--      >-->
-    <!--        {{pageNumber}}-->
-    <!--      </div>-->
-    <!--    </div>-->
   </div>
 </template>
 
@@ -99,11 +87,6 @@ export default {
       sortedAndSearchedPosts: 'post/sortedAndSearchedPosts'
     })
   },
-  watch: {
-    // page(){
-    //   this.fetchPosts()
-    // }
-  }
 }
 </script>
 
@@ -113,17 +96,6 @@ export default {
   display: flex;
   justify-content: space-between;
   margin: 15px 0;
-}
-.page__wrapper{
-  display: flex;
-  margin-top: 15px;
-}
-.page{
-  border: 1px solid black;
-  padding: 10px;
-}
-.current-page{
-  border: 2px solid teal;
 }
 .observer {
   height: 30px;

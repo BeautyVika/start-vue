@@ -27,19 +27,18 @@
         v-if="!isPostLoading"
     />
     <div v-else>Идет загрузка</div>
-    <div v-intersection="loadMorePosts" class="observer"></div>
-    <!--    <div class="page__wrapper">-->
-    <!--      <div v-for="pageNumber in totalPage"-->
-    <!--           :key="pageNumber"-->
-    <!--           class="page"-->
-    <!--           :class="{-->
-    <!--             'current-page': page === pageNumber-->
-    <!--           }"-->
-    <!--           @click="changePage(pageNumber)"-->
-    <!--      >-->
-    <!--        {{pageNumber}}-->
-    <!--      </div>-->
-    <!--    </div>-->
+        <div class="page__wrapper">
+          <div v-for="pageNumber in totalPage"
+               :key="pageNumber"
+               class="page"
+               :class="{
+                 'current-page': page === pageNumber
+               }"
+               @click="changePage(pageNumber)"
+          >
+            {{pageNumber}}
+          </div>
+        </div>
   </div>
 </template>
 
@@ -79,9 +78,9 @@ export default {
     showDialog() {
       this.dialogVisible = true
     },
-    // changePage(pageNumber) {
-    //   this.page = pageNumber
-    // },
+    changePage(pageNumber) {
+      this.page = pageNumber
+    },
     async fetchPosts() {
       try{
         this.isPostLoading = true
@@ -117,17 +116,6 @@ export default {
   },
   mounted() {
     this.fetchPosts()
-    // const options = {
-    //   rootMargin: "0px",
-    //   threshold: 1.0,
-    // };
-    // const callback = (entries, observer) => {
-    //   if(entries[0].isIntersecting && this.page < this.totalPage){
-    //     this.loadMorePosts()
-    //   }
-    // }
-    // const observer = new IntersectionObserver(callback, options);
-    // observer.observe(this.$refs.observer)
   },
   computed: {
     sortedPosts() {
@@ -138,9 +126,9 @@ export default {
     }
   },
   watch: {
-    // page(){
-    //   this.fetchPosts()
-    // }
+    page(){
+      this.fetchPosts()
+    }
   }
 }
 </script>
